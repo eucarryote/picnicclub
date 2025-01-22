@@ -1,7 +1,9 @@
+$red-color: #B2160C;
+
 body {
-  font-family: "Courier New", Courier, monospace;
+  font-family: 'Courier New', Courier, monospace;
   background-color: white;
-  color: #B2160C;
+  color: $red-color;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -11,12 +13,12 @@ body {
 
 .window {
   width: 300px;
-  border: 2px solid #B2160C;
-  box-shadow: 4px 4px 0 #9a130a;
+  border: 2px solid $red-color;
+  box-shadow: 4px 4px 0 darken($red-color, 5%);
 }
 
 .title-bar {
-  background-color: #B2160C;
+  background-color: $red-color;
   color: white;
   display: flex;
   justify-content: space-between;
@@ -38,8 +40,8 @@ body {
   width: 10px;
   height: 10px;
   border: 1px solid white;
-  background-color: #B2160C;
-  color: #B2160C;
+  background-color: $red-color;
+  color: $red-color;
 }
 
 .content {
@@ -50,7 +52,7 @@ body {
 button {
   font-family: inherit;
   font-size: 14px;
-  border: 2px solid #B2160C;
+  border: 2px solid $red-color;
   background-color: white;
   padding: 5px 10px;
   cursor: pointer;
@@ -58,6 +60,6 @@ button {
 }
 
 button:hover {
-  background-color: #B2160C;
+  background-color: $red-color;
   color: white;
-}/*# sourceMappingURL=style.css.map */
+}
