@@ -5,7 +5,11 @@ import { sveltePreprocess } from 'svelte-preprocess';
 const config = {
 	// Consult https://svelte.dev/docs/kit/integrations
 	// for more information about preprocessors
-	preprocess: sveltePreprocess(),
+	preprocess: sveltePreprocess({
+		scss: {
+			prependData: `@import 'src/styles/variables.scss';`
+		}
+	}),
 
 	kit: {
 		// adapter-auto only supports some environments, see https://svelte.dev/docs/kit/adapter-auto for a list.
