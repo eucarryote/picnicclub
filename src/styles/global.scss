@@ -1,12 +1,47 @@
-@import './variables.scss';
+@use './variables.scss';
+
+@font-face {
+	font-family: 'Editorial New';
+	src: url('../fonts/PPEditorialNew-Ultralight.otf') format('opentype');
+	font-weight: 100;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Editorial New';
+	src: url('../fonts/PPEditorialNew-UltralightItalic.otf') format('opentype');
+	font-weight: 100;
+	font-style: italic;
+}
+@font-face {
+	font-family: 'Editorial New';
+	src: url('../fonts/PPEditorialNew-Regular.otf') format('opentype');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'Editorial New';
+	src: url('../fonts/PPEditorialNew-Italic.otf') format('opentype');
+	font-weight: normal;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: 'Editorial New';
+	src: url('../fonts/PPEditorialNew-Ultrabold.otf') format('opentype');
+	font-weight: bold;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Editorial New';
+	src: url('../fonts/PPEditorialNew-UltraboldItalic.otf') format('opentype');
+	font-weight: bold;
+	font-style: italic;
+}
 
 body {
-	font-family: 'Courier New', Courier, monospace;
 	background-color: white;
-	color: $red-color;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	height: 100vh;
-	margin: 0;
+	color: variables.$red-color;
+	font-family: 'Editorial New', 'Courier New', Courier, monospace;
 }
