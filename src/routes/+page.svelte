@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Button from '$lib/Button.svelte';
+	import PicnicSlide from '$lib/PicnicSlide.svelte';
 	import { onMount } from 'svelte';
 
 	let windowWidth = 0;
@@ -12,6 +13,10 @@
 		handleResize();
 		window.addEventListener('resize', handleResize);
 	});
+
+	let { data } = $props();
+
+	console.log(data.picnics);
 </script>
 
 <div class="bento">
@@ -20,12 +25,11 @@
 	</div>
 	<div class="about-section"></div>
 	<div class="picnic-section">
-		<div
-			style="display: flex; flex-direction:row; justify-content: space-between; padding: 20px; width: 100%;"
-		>
-			<h3 class="section-title">Next Picnic</h3>
+		<div style="display: flex; flex-direction:row; justify-content: space-between; width: 100%;">
+			<h3 class="section-title">Upcoming Picnics</h3>
 			<Button>Submit a Picnic</Button>
 		</div>
+		<PicnicSlide picnics={data.picnics} />
 	</div>
 </div>
 
@@ -72,7 +76,6 @@
 		background-color: $red-color;
 		background-size: cover;
 
-		margin-top: 20px;
 		border-radius: 10px;
 	}
 
@@ -81,8 +84,9 @@
 		border-color: $red-color;
 		border-style: dashed;
 		border-width: 2px;
+		padding: 10px;
 
-		margin-top: 20px;
 		display: flex;
+		flex-direction: column;
 	}
 </style>
