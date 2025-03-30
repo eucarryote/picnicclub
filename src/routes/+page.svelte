@@ -2,9 +2,6 @@
 	import Button from '$lib/Button.svelte';
 	import { onMount } from 'svelte';
 
-	let snips = ['foo', 'bar', 'baz', 'foo', 'bar', 'baz', 'foo', 'bar', 'baz'];
-	let website = 'https://www.google.com';
-
 	let windowWidth = 0;
 
 	function handleResize() {
@@ -17,37 +14,25 @@
 	});
 </script>
 
-{#snippet bentoWindow(title: string, src: string)}
-	<div class="window">
-		<div class="title-bar">
-			<span class="title">{title}</span>
-			<div class="buttons">
-				<div class="button close"></div>
-				<div class="button minimize"></div>
-				<div class="button maximize"></div>
-			</div>
-		</div>
-		<div class="content">
-			<iframe {title} {src} frameborder="0"></iframe>
-		</div>
-	</div>
-{/snippet}
-
 <div class="bento">
 	<div class="page-title-container">
 		<h1 class="page-title">Picnic Club</h1>
 	</div>
-	{#each snips as snip}
-		{@render bentoWindow(snip, website)}
-	{/each}
+	<div class="about-section"></div>
+	<div class="picnic-section">
+		<div
+			style="display: flex; flex-direction:row; justify-content: space-between; padding: 20px; width: 100%;"
+		>
+			<h3 class="section-title">Next Picnic</h3>
+			<Button>Submit a Picnic</Button>
+		</div>
+	</div>
 </div>
-
-<Button>Click me</Button>
 
 <style lang="scss">
 	.page-title-container {
 		margin-top: 12px;
-		grid-column: span 3;
+		grid-column: span 4;
 	}
 
 	.page-title {
@@ -60,6 +45,14 @@
 		padding: 0;
 	}
 
+	.section-title {
+		color: $red-color;
+		font-size: 1.5rem;
+		margin: 0;
+		padding: 0;
+		font-weight: 100;
+	}
+
 	@media (max-width: 768px) {
 		.page-title {
 			font-size: 23.5vw;
@@ -68,48 +61,28 @@
 
 	.bento {
 		display: grid;
-		grid-template-columns: repeat(3, minmax(30px, 1fr));
+		grid-template-columns: repeat(4, minmax(30px, 1fr));
 		grid-auto-rows: minmax(150px, auto);
-		gap: 0px;
+		gap: 0rem 3rem;
 		width: 100%;
 	}
 
-	.window {
-		width: 100%;
-		height: 100%;
-		border: 2px solid $red-color;
-		box-shadow: 4px 4px 0 darken($red-color, 5%);
-
-		.title-bar {
-			background-color: $red-color;
-			color: white;
-			display: flex;
-			justify-content: space-between;
-			align-items: center;
-			padding: 5px;
-			font-size: 14px;
-		}
-
-		.title-bar .title {
-			text-transform: uppercase;
-		}
-	}
-
-	.buttons {
-		display: flex;
-		gap: 5px;
-	}
-
-	.button {
-		width: 10px;
-		height: 10px;
-		border: 1px solid white;
+	.about-section {
+		grid-column: span 2;
 		background-color: $red-color;
-		color: $red-color;
+		background-size: cover;
+
+		margin-top: 20px;
+		border-radius: 10px;
 	}
 
-	.content {
-		padding: 10px;
-		font-size: 14px;
+	.picnic-section {
+		grid-column: span 2;
+		border-color: $red-color;
+		border-style: dashed;
+		border-width: 2px;
+
+		margin-top: 20px;
+		display: flex;
 	}
 </style>
