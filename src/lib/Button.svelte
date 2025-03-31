@@ -1,5 +1,9 @@
 <script lang="ts">
-	let { children } = $props();
+	let {
+		children,
+		type = 'button',
+		onclick
+	}: { children: any; type?: any; onclick?: any } = $props();
 
 	let confetti = $state(false);
 
@@ -13,11 +17,12 @@
 		setTimeout(() => {
 			confetti = false;
 		}, confettiDuration);
+		onclick?.(event); // Call the onclick handler if provided
 	}
 </script>
 
 <div class="relative">
-	<button onclick={throwConfetti}>
+	<button onclick={throwConfetti} {type}>
 		{@render children()}
 	</button>
 

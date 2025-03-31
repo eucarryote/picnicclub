@@ -18,24 +18,35 @@
 </script>
 
 <div class="picnic-slide">
-	<div class="picnic-slide-content">
-		<h2>{current_picnic.title}</h2>
-		<p>{current_picnic.description}</p>
-	</div>
-	<div class="picnic-slide-image"></div>
+	{#if current_picnic}
+		<div class="picnic-slide-content">
+			<h2>{current_picnic.title}</h2>
+			<p>{current_picnic.description}</p>
+		</div>
+		<div class="picnic-slide-image"></div>
+	{:else}
+		<div class="picnic-slide-content">
+			<h2>No Picnic Found</h2>
+			<p>It seems like there are no picnics available at the moment.</p>
+			<p>Please check back later or consider organizing a new picnic!</p>
+		</div>
+	{/if}
 </div>
 
-<div class="slide-controls">
-	<button onclick={previousPicnic}>Previous</button>
-	<button onclick={nextPicnic}>Next</button>
-</div>
+{#if picnics.length > 1}
+	<div class="slide-controls">
+		<button onclick={previousPicnic}>Previous</button>
+
+		<span>{current_picnic_index + 1} / {picnics.length}</span>
+
+		<button onclick={nextPicnic}>Next</button>
+	</div>
+{/if}
 
 <style lang="scss">
 	.picnic-slide {
 		display: flex;
 		justify-content: space-between;
-		border: 1px solid #ccc;
-		border-radius: 8px;
 		margin-top: 20px;
 	}
 
@@ -52,11 +63,6 @@
 		p {
 			font-size: 16px;
 		}
-	}
-
-	.picnic-slide-image img {
-		max-width: 300px;
-		border-radius: 8px;
 	}
 
 	.slide-controls {
