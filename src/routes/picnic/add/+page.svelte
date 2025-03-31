@@ -7,9 +7,8 @@
 <form
 	method="POST"
 	class="picnic-form"
-	use:enhance={({ formElement, formData, action, cancel }) => {
+	use:enhance={() => {
 		return async ({ result }) => {
-			console.log('Form submitted:', formData);
 			if (result.type === 'redirect') {
 				goto(result.location);
 			} else {

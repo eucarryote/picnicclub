@@ -19,17 +19,13 @@ export const actions: Actions = {
 		};
 
 		try {
-			console.log('New picnic:', newPicnic);
 			supabase
 				.from('picnic')
 				.insert(newPicnic)
-				.then(({ data, error }) => {
+				.then(({ error }) => {
 					if (error) {
 						console.error('Error inserting picnic:', error);
 						throw new Error('Failed to insert picnic');
-					}
-					if (data) {
-						console.log('Inserted picnic:', data);
 					}
 				});
 		} catch (error) {

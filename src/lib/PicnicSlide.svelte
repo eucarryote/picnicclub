@@ -55,7 +55,7 @@
 		margin-right: 20px;
 
 		h2 {
-			color: $red-color; // Use your defined red color
+			color: $red-color;
 			font-size: 24px;
 			margin-bottom: 10px;
 		}
