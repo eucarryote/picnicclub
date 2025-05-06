@@ -16,15 +16,15 @@
 	});
 
 	let { data } = $props();
-
-	console.log(data.picnics);
 </script>
 
 <div class="about-section"></div>
 <div class="picnic-section">
 	<div style="display: flex; flex-direction:row; justify-content: space-between; width: 100%;">
 		<h3 class="section-title">Upcoming Picnics</h3>
-		<Button onclick={() => goto('/')} type="button">Submit a Picnic</Button>
+		<a href="picnic/add">
+			<Button type="button">Add a Picnic</Button>
+		</a>
 	</div>
 	<PicnicSlide picnics={data.picnics} />
 </div>

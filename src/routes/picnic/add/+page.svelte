@@ -9,8 +9,11 @@
 	class="picnic-form"
 	use:enhance={() => {
 		return async ({ result }) => {
+			console.log(result);
 			if (result.type === 'redirect') {
 				goto(result.location);
+			} else if (result.type === 'success') {
+				goto('/');
 			} else {
 				await applyAction(result);
 			}

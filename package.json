@@ -33,6 +33,7 @@
 		"vite": "^6.0.0"
 	},
 	"dependencies": {
-		"@supabase/supabase-js": "^2.49.4"
+		"@googleapis/docs": "^3.3.4",
+		"googleapis": "^148.0.0"
 	}
 }
