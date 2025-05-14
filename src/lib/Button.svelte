@@ -16,8 +16,8 @@
 
 		setTimeout(() => {
 			confetti = false;
+			onclick?.(event); // Call the onclick handler if provided
 		}, confettiDuration);
-		onclick?.(event); // Call the onclick handler if provided
 	}
 </script>
 

@@ -22,9 +22,7 @@
 <div class="picnic-section">
 	<div style="display: flex; flex-direction:row; justify-content: space-between; width: 100%;">
 		<h3 class="section-title">Upcoming Picnics</h3>
-		<a href="picnic/add">
-			<Button type="button">Add a Picnic</Button>
-		</a>
+		<Button type="button" onclick={() => goto('/picnic/add')}>Add a Picnic</Button>
 	</div>
 	<PicnicSlide picnics={data.picnics} />
 </div>
