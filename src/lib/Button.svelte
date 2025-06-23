@@ -2,8 +2,9 @@
 	let {
 		children,
 		type = 'button',
-		onclick
-	}: { children: any; type?: any; onclick?: any } = $props();
+		onclick,
+		href = '#'
+	}: { children: any; type?: any; onclick?: any; href?: any } = $props();
 
 	let confetti = $state(false);
 
@@ -15,30 +16,40 @@
 		confettiStart = [event.clientX, event.clientY];
 
 		setTimeout(() => {
-			confetti = false;
 			onclick?.(event); // Call the onclick handler if provided
+			confetti = false;
 		}, confettiDuration);
 	}
 </script>
 
-<div class="relative">
-	<button onclick={throwConfetti} {type}>
-		{@render children()}
-	</button>
+{#if type === 'link'}
+	<a {href}>
+		{@render buttonBody()}
+	</a>
+{:else}
+	{@render buttonBody()}
+{/if}
 
-	{#if confetti}
-		<div class="confetti">
-			{#each new Array(100) as _, i}
-				<span
-					class="piece"
-					style="--start-x: {confettiStart[0]}px; --start-y: {confettiStart[1]}px; --translate-x: {Math.random() *
-						200 -
-						100}px; --translate-y: {Math.random() * 200 - 100}px;"
-				></span>
-			{/each}
-		</div>
-	{/if}
-</div>
+{#snippet buttonBody()}
+	<div class="relative">
+		<button onclick={throwConfetti} {type}>
+			{@render children()}
+		</button>
+
+		{#if confetti}
+			<div class="confetti">
+				{#each new Array(100) as _, i}
+					<span
+						class="piece"
+						style="--start-x: {confettiStart[0]}px; --start-y: {confettiStart[1]}px; --translate-x: {Math.random() *
+							200 -
+							100}px; --translate-y: {Math.random() * 200 - 100}px;"
+					></span>
+				{/each}
+			</div>
+		{/if}
+	</div>
+{/snippet}
 
 <style lang="scss">
 	button {

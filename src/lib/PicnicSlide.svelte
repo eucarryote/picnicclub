@@ -47,7 +47,6 @@
 	.picnic-slide {
 		display: flex;
 		justify-content: space-between;
-		margin-top: 20px;
 	}
 
 	.picnic-slide-content {

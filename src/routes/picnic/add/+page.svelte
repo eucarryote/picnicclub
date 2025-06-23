@@ -44,7 +44,7 @@
 		<input type="text" name="meeting_place" />
 	</label>
 	<div style="display: flex; justify-content:space-between; ">
-		<Button type="button" onclick={() => goto('/')}>Cancel</Button>
+		<Button type="link" href="/">Cancel</Button>
 		<Button type="submit">Add Picnic</Button>
 	</div>
 </form>
